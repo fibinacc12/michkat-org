@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>جمعية المشكاة | Association Al-Michkat</title>
+<meta name="description" content="جمعية المشكاة للعمل الخيري والتنموي — إغاثة، تعليم، توعية. Association Al-Michkat pour le Travail Caritatif et le Développement, Mauritanie.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Marcellus&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0a8181;      /* arch + wordmark */
+  --teal-deep:#06605f;
+  --bark:#3e4420;      /* trunk */
+  --leaf:#69742f;      /* light leaves + ground line */
+  --mist:#eef5f3;      /* pale teal wash */
+  --paper:#ffffff;
+  --ink:#252a14;
+  --muted:#5d6247;
+  --display:"Reem Kufi", "IBM Plex Sans Arabic", sans-serif;
+  --body:"IBM Plex Sans Arabic", system-ui, sans-serif;
+  --wrap:1120px;
+}
+html[lang="fr"]{ --display:"Marcellus", Georgia, serif; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.75;font-size:17px;overflow-x:hidden}
+html[lang="ar"] body [lang="fr"], html[lang="fr"] body [lang="ar"]{display:none !important}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:24px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.25;color:var(--bark)}
+h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:.6em}
+h3{font-size:1.3rem}
+p{max-width:62ch}
+
+/* ground line: the olive bar the tree stands on in the logo */
+.ground{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.ground::before,.ground::after{content:"";height:4px;background:var(--leaf);border-radius:2px}
+.ground::before{width:56px}
+.ground::after{flex:1;max-width:120px;opacity:.35}
+.ground span{width:10px;height:10px;border-radius:50%;background:var(--teal);order:-1}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid #e3ebe6}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:52px;height:52px;object-fit:cover;object-position:center 45%;border-radius:50%}
+.brand b{font-family:var(--display);font-weight:600;color:var(--teal);font-size:1.15rem;line-height:1.2}
+.brand small{display:block;font-size:.75rem;color:var(--muted);font-weight:400}
+nav ul{display:flex;gap:4px;list-style:none}
+nav a{text-decoration:none;padding:8px 12px;border-radius:999px;font-weight:500;font-size:.95rem;color:var(--bark)}
+nav a:hover{background:var(--mist);color:var(--teal-deep)}
+.tools{display:flex;gap:8px;align-items:center}
+.lang{border:2px solid var(--teal);background:none;color:var(--teal);font:600 .9rem var(--body);padding:6px 14px;border-radius:999px;cursor:pointer}
+.lang:hover{background:var(--teal);color:#fff}
+.menu-btn{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;color:var(--bark)}
+@media (max-width:920px){
+  nav{position:absolute;inset-inline:0;top:72px;background:#fff;border-bottom:1px solid #e3ebe6;display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;padding:12px 16px}
+  nav a{display:block;padding:12px}
+  .menu-btn{display:block}
+}
+
+/* ---------- hero: the mishkat (niche) ---------- */
+.hero{position:relative;padding:48px 0 0;background:linear-gradient(var(--mist),#fff 70%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:end}
+.hero-copy{padding-bottom:96px}
+.hero h1{font-size:clamp(2.4rem,5.6vw,4.3rem);color:var(--teal);margin-bottom:.3em}
+html[lang="fr"] .hero h1{font-size:clamp(2.1rem,4.4vw,3.4rem)}
+.hero .full{font-family:var(--display);font-size:clamp(1.1rem,2vw,1.4rem);color:var(--bark);margin-bottom:22px}
+.motto{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:26px 0 34px}
+.motto li{font-family:var(--display);font-size:1.15rem;padding:6px 18px;border-radius:999px;background:#fff;border:2px solid var(--leaf);color:var(--bark)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;padding:13px 26px;border-radius:999px;background:var(--teal);color:#fff;border:2px solid var(--teal)}
+.btn:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+.btn.ghost{background:transparent;color:var(--teal)}
+.btn.ghost:hover{background:var(--teal);color:#fff}
+
+.niche{position:relative;aspect-ratio:5/6;max-width:500px;justify-self:center;width:100%}
+.niche svg.arch{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.niche .arch path{fill:none;stroke:var(--teal);stroke-width:5;stroke-linecap:round;stroke-dasharray:1600;stroke-dashoffset:1600;animation:draw 1.8s .2s cubic-bezier(.6,.1,.3,1) forwards}
+.niche .arch circle{fill:var(--teal);opacity:0;animation:pop .4s 1.8s forwards}
+.niche .arch line{stroke:var(--leaf);stroke-width:7;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420;animation:draw 1s 1.2s ease-out forwards}
+.niche .tree{position:absolute;left:15%;width:70%;bottom:10.3%;opacity:0;animation:rise 1s 1s ease-out forwards}
+.niche .glow{position:absolute;left:50%;bottom:-14%;width:70%;aspect-ratio:1;translate:-50% 0;border-radius:50%;background:radial-gradient(rgba(10,129,129,.22),transparent 65%);opacity:0;animation:pop 1.2s 1.9s forwards}
+.flame{position:absolute;left:50%;bottom:0;width:6%;translate:-50% 0;opacity:0;animation:pop .6s 2s forwards}
+.flame svg{width:100%;transform-origin:50% 100%;animation:flicker 3s 2.6s ease-in-out infinite}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{opacity:1}}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes flicker{0%,100%{transform:scale(1) rotate(0)}30%{transform:scale(1.06,.96) rotate(-2deg)}60%{transform:scale(.96,1.05) rotate(2deg)}}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-copy{padding-bottom:16px;order:2}
+  .niche{max-width:330px}
+}
+
+/* ---------- sections ---------- */
+section{padding:96px 0}
+.lead{font-size:1.15rem;color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.facts{display:grid;gap:14px}
+.fact{display:flex;gap:16px;align-items:center;padding:18px 20px;background:var(--mist);border-radius:16px}
+.fact strong{font-family:var(--display);font-size:2.2rem;color:var(--teal);line-height:1;min-width:2.2ch;text-align:center}
+.fact span{color:var(--bark);font-weight:500}
+
+/* vision / mission: arch-topped panels */
+.vm{background:var(--bark);color:#eef0e4}
+.vm h2{color:#fff}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:12px}
+.panel{background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.18);border-radius:220px 220px 22px 22px;padding:84px 40px 44px;text-align:center}
+.panel h3{color:#cfe0a0;font-size:1.7rem;margin-bottom:14px}
+.panel p{margin-inline:auto;font-size:1.08rem}
+.panel .ic{width:46px;height:46px;margin:0 auto 18px;color:#cfe0a0}
+
+/* objectives: leaves on a branch */
+.obj-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 48px;margin-top:8px}
+.obj-list li{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid #e3ebe6}
+.obj-list svg{flex:none;width:30px;height:30px;margin-top:2px}
+.obj-list li:nth-child(odd) svg{color:var(--bark)}
+.obj-list li:nth-child(even) svg{color:var(--leaf)}
+html[dir="rtl"] .obj-list svg{transform:scaleX(-1)}
+
+/* domains */
+.domains{background:var(--mist)}
+.dom-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dom{background:#fff;border-radius:18px;padding:26px;border-top:5px solid var(--teal)}
+.dom:nth-child(3n+2){border-top-color:var(--leaf)}
+.dom:nth-child(3n){border-top-color:var(--bark)}
+.dom svg{width:38px;height:38px;color:var(--teal);margin-bottom:14px}
+.dom h3{font-size:1.15rem}
+
+/* SDGs */
+.sdg-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
+.goals{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.goals li{display:flex;align-items:center;gap:12px;padding:12px 14px;border:2px solid #dbe6e1;border-radius:14px;font-weight:500;font-size:.95rem;line-height:1.35}
+.goals b{font-family:var(--display);flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--teal);color:#fff;font-size:1.1rem}
+.goals li:nth-child(3n+2) b{background:var(--leaf)}
+.goals li:nth-child(3n) b{background:var(--bark)}
+
+/* values */
+.values{padding-top:0}
+.val-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px}
+.val-row span{font-family:var(--display);font-size:1.25rem;padding:12px 26px;border-radius:999px;background:var(--mist);color:var(--teal-deep)}
+.values h2,.values .ground{justify-content:center;text-align:center}
+
+/* coverage */
+.cover{background:linear-gradient(var(--teal),var(--teal-deep));color:#e6f4f2}
+.cover h2{color:#fff}
+.cover-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.regions{list-style:none;display:flex;flex-wrap:wrap;gap:10px}
+.regions li{padding:8px 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.35);font-size:.95rem}
+.regions li.hq{background:#fff;color:var(--teal-deep);border-color:#fff;font-weight:600}
+.cover .ground::before{background:#cfe0a0}.cover .ground span{background:#fff}
+
+/* legal + contact */
+.legal-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+dl.doc{border:2px solid #dbe6e1;border-radius:24px;padding:12px 28px}
+dl.doc div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px dashed #dbe6e1}
+dl.doc div:last-child{border:0}
+dt{color:var(--muted);font-size:.92rem}
+dd{font-weight:500;color:var(--bark);overflow-wrap:anywhere}
+.contact-card{background:var(--bark);color:#eef0e4;border-radius:220px 220px 24px 24px;padding:90px 36px 40px;text-align:center}
+.contact-card h3{color:#fff;font-size:1.7rem;margin-bottom:10px}
+.contact-card p{margin:0 auto 26px;color:#d5d9c3}
+.c-links{display:grid;gap:12px}
+.c-links a{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px;border-radius:999px;text-decoration:none;font-weight:600;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.2)}
+.c-links a:hover{background:rgba(255,255,255,.16)}
+.c-links a.wa{background:var(--teal);border-color:var(--teal)}
+.c-links svg{width:20px;height:20px}
+.addr{margin-top:22px;font-size:.92rem;color:#c9ceb4}
+[dir="ltr"] .num,.num{direction:ltr;unicode-bidi:isolate}
+
+footer{background:#2c3117;color:#c9ceb4;padding:48px 0 32px;text-align:center}
+footer img{width:84px;height:84px;object-fit:cover;object-position:center 45%;border-radius:50%;margin:0 auto 16px;background:#fff}
+footer .tag{font-family:var(--display);font-size:1.35rem;color:#fff;margin:0 auto 6px;max-width:none}
+footer small{display:block;margin-top:20px;font-size:.85rem;opacity:.75}
+
+@media (max-width:860px){
+  section{padding:72px 0}
+  .about-grid,.vm-grid,.sdg-grid,.cover-grid,.legal-grid{grid-template-columns:1fr;gap:32px}
+  .obj-list{grid-template-columns:1fr}
+  .dom-grid{grid-template-columns:1fr 1fr}
+  .panel{padding:70px 26px 34px}
+}
+@media (max-width:540px){
+  .wrap{padding-inline:16px}
+  .dom-grid{grid-template-columns:1fr}
+  dl.doc{padding:6px 18px}
+  dl.doc div{grid-template-columns:1fr;gap:2px}
+  .brand small{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-delay:0s !important;animation-iteration-count:1 !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="leaf" viewBox="0 0 32 32"><path fill="currentColor" d="M5 27C5 13 14 4 28 4c0 14-9 23-23 23Zm0 0 13-13" /><path d="M5 27 19 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">
+      <img src="logo.png" alt="">
+      <span><b><span lang="ar">جمعية المشكاة</span><span lang="fr">Al-Michkat</span></b>
+      <small><span lang="ar">للعمل الخيري والتنموي</span><span lang="fr">Travail caritatif et développement</span></small></span>
+    </a>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#about"><span lang="ar">من نحن</span><span lang="fr">Qui sommes-nous</span></a></li>
+        <li><a href="#objectives"><span lang="ar">أهدافنا</span><span lang="fr">Objectifs</span></a></li>
+        <li><a href="#domains"><span lang="ar">مجالات عملنا</span><span lang="fr">Domaines</span></a></li>
+        <li><a href="#sdg"><span lang="ar">التنمية المستدامة</span><span lang="fr">ODD</span></a></li>
+        <li><a href="#contact"><span lang="ar">اتصل بنا</span><span lang="fr">Contact</span></a></li>
+      </ul>
+    </nav>
+    <div class="tools">
+      <button class="lang" id="langBtn" type="button" aria-label="Changer de langue / تغيير اللغة"><span lang="ar">Français</span><span lang="fr">العربية</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1><span lang="ar">جمعية المشكاة</span><span lang="fr">Association Al-Michkat</span></h1>
+      <p class="full"><span lang="ar">للعمل الخيري والتنموي — الجمهورية الإسلامية الموريتانية</span><span lang="fr">pour le Travail Caritatif et le Développement — République Islamique de Mauritanie</span></p>
+      <p class="lead"><span lang="ar">منظمة موريتانية غير حكومية وغير ربحية، تعمل على تعزيز العمل الإنساني والتنمية المستدامة، وتحسين الظروف المعيشية للفئات الهشة في مختلف ولايات موريتانيا.</span><span lang="fr">Une ONG mauritanienne à but non lucratif qui renforce l’action humanitaire, promeut le développement durable et améliore les conditions de vie des populations vulnérables dans toutes les régions de Mauritanie.</span></p>
+      <ul class="motto">
+        <li><span lang="ar">إغاثة</span><span lang="fr">Secours</span></li>
+        <li><span lang="ar">تعليم</span><span lang="fr">Éducation</span></li>
+        <li><span lang="ar">توعية</span><span lang="fr">Sensibilisation</span></li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="#contact"><span lang="ar">ادعم عملنا</span><span lang="fr">Soutenir notre action</span></a>
+        <a class="btn ghost" href="#about"><span lang="ar">تعرّف علينا</span><span lang="fr">Découvrir l’association</span></a>
+      </div>
+    </div>
+
+    <div class="niche" aria-hidden="true">
+      <div class="glow"></div>
+      <img class="tree" src="tree.png" alt="">
+      <svg class="arch" viewBox="0 0 500 600" preserveAspectRatio="none">
+        <path d="M60 590 V250 A190 190 0 0 1 440 250 V590"/>
+        <path d="M18 590 V250" style="stroke-width:4;animation-delay:.9s"/>
+        <path d="M482 590 V250" style="stroke-width:4;animation-delay:.9s"/>
+        <circle cx="18" cy="238" r="10"/><circle cx="482" cy="238" r="10"/>
+        <line x1="40" y1="540" x2="460" y2="540"/>
+      </svg>
+      <div class="flame"><svg viewBox="0 0 26 40"><path fill="#0a8181" d="M13 0C16 10 25 16 25 26a12 12 0 0 1-24 0C1 16 10 10 13 0Z"/><path fill="#fff" d="M13 18c2 5 5 7 5 11a5 5 0 0 1-10 0c0-4 3-6 5-11Z"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="ground"><span></span></div>
+      <h2><span lang="ar">من نحن؟</span><span lang="fr">Qui sommes-nous ?</span></h2>
+      <p class="lead"><span lang="ar">جمعية المشكاة للعمل الخيري والتنموي منظمة موريتانية غير حكومية وغير ربحية، تعمل على تعزيز العمل الإنساني والتنمية المستدامة، وتحسين الظروف المعيشية للفئات الهشة، من خلال تنفيذ برامج ومشاريع تستجيب لاحتياجات المجتمعات المحلية في مختلف ولايات موريتانيا.</span><span lang="fr">L’Association Al-Michkat pour le Travail Caritatif et le Développement est une organisation mauritanienne non gouvernementale et à but non lucratif. Elle œuvre pour le renforcement de l’action humanitaire et la promotion du développement durable, ainsi que pour l’amélioration des conditions de vie des populations vulnérables, à travers des programmes et projets répondant aux besoins des communautés locales dans les différentes régions de Mauritanie.</span></p>
+    </div>
+    <div class="facts">
+      <div class="fact"><strong>15</strong><span><span lang="ar">ولاية يشملها نطاق عملنا في كامل التراب الموريتاني</span><span lang="fr">régions couvertes sur l’ensemble du territoire mauritanien</span></span></div>
+      <div class="fact"><strong>10</strong><span><span lang="ar">أهداف توجّه برامجنا ومشاريعنا</span><span lang="fr">objectifs qui guident nos programmes et projets</span></span></div>
+      <div class="fact"><strong>3</strong><span><span lang="ar">ركائز: إغاثة، تعليم، توعية</span><span lang="fr">piliers : secours, éducation, sensibilisation</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION / MISSION -->
+<section class="vm">
+  <div class="wrap">
+    <div class="vm-grid">
+      <article class="panel">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <h3><span lang="ar">رؤيتنا</span><span lang="fr">Notre vision</span></h3>
+        <p><span lang="ar">المساهمة في بناء مجتمع متضامن وعادل وشامل، يتمتع أفراده بفرص أفضل للتعليم والتمكين والتنمية المستدامة.</span><span lang="fr">Contribuer à la construction d’une société solidaire, juste et inclusive, offrant à tous ses membres de meilleures possibilités d’accès à l’éducation, à l’autonomisation et au développement durable.</span></p>
+      </article>
+      <article class="panel">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c2 5 7 8 7 13a7 7 0 0 1-14 0c0-5 5-8 7-13Z"/><path d="M12 12c1 2.5 3 3.5 3 5.5a3 3 0 0 1-6 0c0-2 2-3 3-5.5Z"/></svg>
+        <h3><span lang="ar">رسالتنا</span><span lang="fr">Notre mission</span></h3>
+        <p><span lang="ar">تنفيذ مبادرات إنسانية وتنموية مستدامة، وتعزيز قدرات النساء والشباب، ودعم التعليم والحماية الاجتماعية، وترسيخ قيم التضامن والمشاركة المجتمعية.</span><span lang="fr">Mettre en œuvre des initiatives humanitaires et de développement durable, renforcer les capacités des femmes et des jeunes, soutenir l’éducation et la protection sociale, et promouvoir les valeurs de solidarité et de participation communautaire.</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIVES -->
+<section id="objectives">
+  <div class="wrap">
+    <div class="ground"><span></span></div>
+    <h2><span lang="ar">أهدافنا</span><span lang="fr">Nos objectifs</span></h2>
+    <ul class="obj-list">
+      <li><svg><use href="#leaf"/></svg><span><span lang="ar">مساعدة الفئات الهشة والأسر المحتاجة.</span><span lang="fr">Apporter une assistance aux populations vulnérables et aux familles dans le besoin.</span></span></li>
+      <li><svg><use href="#leaf"/></svg><span><span lang="ar">دعم التعليم وتحسين البيئة المدرسية.</span><span lang="fr">Soutenir l’éducation et améliorer l’environnement scolaire.</span></span></li>
+      <li><svg><use href="#leaf"/></svg><span><span lang="ar">تمكين النساء والفتيات وتعزيز ريادة الأعمال.</span><span lang="fr">Favoriser l’autonomisation des femmes et des filles et promouvoir l’entrepreneuriat.</span></span></li>
+      <li><svg><use href="#leaf"/></svg><span><span lang="ar">تنمية قدرات الشباب وتشجيع مشاركتهم في التنمية.</span><span lang="fr">Développer les capacités des jeunes et encourager leur participation au développement.</span></span></li>
+      <li><svg><use href="#leaf"/></svg><span><span lang="ar">حماية الطفل وتعزيز حقوق الإنسان والإدماج الاجتماعي.</span><span lang="fr">Protéger l’enfance, promouvoir les droits humains et renforcer l’inclusion sociale.</span></span></li>
+      <li><svg><use href="#leaf"/></svg><span><span lang="ar">تحسين خدمات المياه والصرف الصحي والنظافة (WASH).</span><span lang="fr">Améliorer l’accès à l’eau, à l’assainissement et à l’hygiène (WASH).</span></span></li>
+      <li><svg><use href="#leaf"/></svg><span><span lang="ar">تعزيز الصحة المجتمعية والتغذية المدرسية.</span><span lang="fr">Promouvoir la santé communautaire et la nutrition scolaire.</span></span></li>
+      <li><svg><use href="#leaf"/></svg><span><span lang="ar">نشر الوعي المجتمعي والوقاية من المخدرات.</span><span lang="fr">Sensibiliser les communautés et prévenir la consommation de drogues.</span></span></li>
+      <li><svg><use href="#leaf"/></svg><span><span lang="ar">تعزيز التماسك الاجتماعي والحوار وبناء السلام.</span><span lang="fr">Renforcer la cohésion sociale, le dialogue et la consolidation de la paix.</span></span></li>
+      <li><svg><use href="#leaf"/></svg><span><span lang="ar">دعم حماية البيئة والتنمية المستدامة.</span><span lang="fr">Soutenir la protection de l’environnement et le développement durable.</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- DOMAINS -->
+<section id="domains" class="domains">
+  <div class="wrap">
+    <div class="ground"><span></span></div>
+    <h2><span lang="ar">مجالات عملنا</span><span lang="fr">Nos domaines d’intervention</span></h2>
+    <div class="dom-grid">
+      <div class="dom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11Z"/></svg><h3><span lang="ar">العمل الإنساني والإغاثي</span><span lang="fr">Action humanitaire et assistance d’urgence</span></h3></div>
+      <div class="dom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c3-1 6-1 10 1 4-2 7-2 10-1v13c-3-1-6-1-10 1-4-2-7-2-10-1Z"/><path d="M12 7v13"/></svg><h3><span lang="ar">التعليم</span><span lang="fr">Éducation</span></h3></div>
+      <div class="dom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="8" r="2.5"/><path d="M2 20c0-3.5 2.7-6 6-6s6 2.5 6 6M14 15c1-.6 2-1 3-1 2.8 0 5 2 5 5"/></svg><h3><span lang="ar">تمكين النساء والشباب</span><span lang="fr">Autonomisation des femmes et des jeunes</span></h3></div>
+      <div class="dom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6Z"/><circle cx="12" cy="10" r="2"/><path d="M8.5 16c.7-1.6 2-2.5 3.5-2.5s2.8.9 3.5 2.5"/></svg><h3><span lang="ar">حماية الطفل</span><span lang="fr">Protection de l’enfance</span></h3></div>
+      <div class="dom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4.5 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-6.5 6-11Z"/><path d="M9 15a3 3 0 0 0 3 3"/></svg><h3><span lang="ar">المياه والصرف الصحي والنظافة</span><span lang="fr">Eau, assainissement et hygiène</span></h3></div>
+      <div class="dom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg><h3><span lang="ar">الصحة المجتمعية</span><span lang="fr">Santé communautaire</span></h3></div>
+      <div class="dom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg><h3><span lang="ar">الإدماج الاجتماعي</span><span lang="fr">Inclusion sociale</span></h3></div>
+      <div class="dom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l6 4V6L7 10Z"/><path d="M17 9a4 4 0 0 1 0 6M19.5 6.5a8 8 0 0 1 0 11"/></svg><h3><span lang="ar">التوعية المجتمعية</span><span lang="fr">Sensibilisation communautaire</span></h3></div>
+      <div class="dom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20c0-9 6-15 15-15 0 9-6 15-15 15Z"/><path d="M5 20 13 12"/></svg><h3><span lang="ar">حماية البيئة</span><span lang="fr">Protection de l’environnement</span></h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- SDGs -->
+<section id="sdg">
+  <div class="wrap sdg-grid">
+    <div>
+      <div class="ground"><span></span></div>
+      <h2><span lang="ar">التزامنا بأهداف التنمية المستدامة</span><span lang="fr">Notre engagement pour les Objectifs de développement durable</span></h2>
+      <p class="lead"><span lang="ar">تسترشد الجمعية بمبادئ التنمية المستدامة، وتسعى إلى المساهمة في تحقيق أهداف التنمية المستدامة للأمم المتحدة لعام 2030، من خلال برامجها ومشاريعها في مجالات مكافحة الفقر، والتعليم الجيد، والصحة، وتمكين المرأة والشباب، والمياه والصرف الصحي، والإدماج الاجتماعي، وحماية البيئة، وتعزيز السلام والتماسك المجتمعي.</span><span lang="fr">L’Association s’inspire des principes du développement durable et contribue à l’Agenda 2030 des Nations Unies à travers ses programmes de lutte contre la pauvreté, d’éducation de qualité, de santé, d’autonomisation des femmes et des jeunes, d’eau et d’assainissement, d’inclusion sociale, de protection de l’environnement et de promotion de la paix et de la cohésion sociale.</span></p>
+      <p style="margin-top:14px"><span lang="ar">وتعمل الجمعية على تطوير شراكات وطنية ودولية تسهم في تحقيق هذه الأهداف، بما يتناسب مع احتياجات المجتمعات المحلية وأولويات التنمية في موريتانيا.</span><span lang="fr">Elle développe des partenariats nationaux et internationaux qui contribuent à ces objectifs, en adéquation avec les besoins des communautés locales et les priorités de développement de la Mauritanie.</span></p>
+    </div>
+    <ul class="goals">
+      <li><b>1</b><span><span lang="ar">القضاء على الفقر</span><span lang="fr">Pas de pauvreté</span></span></li>
+      <li><b>3</b><span><span lang="ar">الصحة الجيدة والرفاه</span><span lang="fr">Bonne santé et bien-être</span></span></li>
+      <li><b>4</b><span><span lang="ar">التعليم الجيد</span><span lang="fr">Éducation de qualité</span></span></li>
+      <li><b>5</b><span><span lang="ar">المساواة بين الجنسين</span><span lang="fr">Égalité entre les sexes</span></span></li>
+      <li><b>6</b><span><span lang="ar">المياه النظيفة والنظافة الصحية</span><span lang="fr">Eau propre et assainissement</span></span></li>
+      <li><b>10</b><span><span lang="ar">الحد من أوجه عدم المساواة</span><span lang="fr">Inégalités réduites</span></span></li>
+      <li><b>13</b><span><span lang="ar">العمل المناخي</span><span lang="fr">Mesures relatives au climat</span></span></li>
+      <li><b>16</b><span><span lang="ar">السلام والعدل والمؤسسات القوية</span><span lang="fr">Paix, justice et institutions efficaces</span></span></li>
+      <li><b>17</b><span><span lang="ar">عقد الشراكات لتحقيق الأهداف</span><span lang="fr">Partenariats pour la réalisation des objectifs</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="wrap">
+    <div class="ground"><span></span></div>
+    <h2><span lang="ar">قيمنا</span><span lang="fr">Nos valeurs</span></h2>
+    <div class="val-row">
+      <span><span lang="ar">الشفافية</span><span lang="fr">Transparence</span></span>
+      <span><span lang="ar">المساءلة</span><span lang="fr">Redevabilité</span></span>
+      <span><span lang="ar">النزاهة</span><span lang="fr">Intégrité</span></span>
+      <span><span lang="ar">التضامن</span><span lang="fr">Solidarité</span></span>
+      <span><span lang="ar">المشاركة المجتمعية</span><span lang="fr">Participation communautaire</span></span>
+      <span><span lang="ar">احترام الكرامة الإنسانية</span><span lang="fr">Respect de la dignité humaine</span></span>
+      <span><span lang="ar">الاستدامة</span><span lang="fr">Durabilité</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="cover">
+  <div class="wrap cover-grid">
+    <div>
+      <div class="ground"><span></span></div>
+      <h2><span lang="ar">نطاق عملنا</span><span lang="fr">Zone d’intervention</span></h2>
+      <p><span lang="ar">يقع المقر الرئيسي للجمعية في مقاطعة لكصر، بولاية نواكشوط الغربية، ويشمل نطاق تغطيتها المسجل في الترخيص النهائي الولايات الموريتانية الخمس عشرة.</span><span lang="fr">Le siège principal de l’Association est situé dans la commune du Ksar, région de Nouakchott Ouest. Selon son récépissé définitif, sa couverture géographique s’étend aux quinze régions administratives de Mauritanie.</span></p>
+    </div>
+    <ul class="regions">
+      <li class="hq"><span lang="ar">نواكشوط الغربية · المقر</span><span lang="fr">Nouakchott Ouest · siège</span></li>
+      <li><span lang="ar">نواكشوط الشمالية</span><span lang="fr">Nouakchott Nord</span></li>
+      <li><span lang="ar">نواكشوط الجنوبية</span><span lang="fr">Nouakchott Sud</span></li>
+      <li><span lang="ar">الحوض الشرقي</span><span lang="fr">Hodh Ech Chargui</span></li>
+      <li><span lang="ar">الحوض الغربي</span><span lang="fr">Hodh El Gharbi</span></li>
+      <li><span lang="ar">لعصابة</span><span lang="fr">Assaba</span></li>
+      <li><span lang="ar">كوركول</span><span lang="fr">Gorgol</span></li>
+      <li><span lang="ar">لبراكنة</span><span lang="fr">Brakna</span></li>
+      <li><span lang="ar">الترارزة</span><span lang="fr">Trarza</span></li>
+      <li><span lang="ar">آدرار</span><span lang="fr">Adrar</span></li>
+      <li><span lang="ar">داخلت نواذيبو</span><span lang="fr">Dakhlet Nouadhibou</span></li>
+      <li><span lang="ar">تكانت</span><span lang="fr">Tagant</span></li>
+      <li><span lang="ar">كيدي ماغا</span><span lang="fr">Guidimakha</span></li>
+      <li><span lang="ar">تيرس زمور</span><span lang="fr">Tiris Zemmour</span></li>
+      <li><span lang="ar">إينشيري</span><span lang="fr">Inchiri</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- LEGAL + CONTACT -->
+<section id="contact">
+  <div class="wrap legal-grid">
+    <div>
+      <div class="ground"><span></span></div>
+      <h2><span lang="ar">المعلومات القانونية</span><span lang="fr">Informations légales</span></h2>
+      <dl class="doc">
+        <div><dt><span lang="ar">رقم الترخيص النهائي</span><span lang="fr">Récépissé définitif</span></dt><dd class="num">FA 010000362502202211582</dd></div>
+        <div><dt><span lang="ar">تاريخ الترخيص</span><span lang="fr">Date de délivrance</span></dt><dd><span lang="ar">12 مارس 2026</span><span lang="fr">12 mars 2026</span></dd></div>
+        <div><dt><span lang="ar">الجهة المصدرة</span><span lang="fr">Autorité</span></dt><dd><span lang="ar">وزارة الداخلية وترقية اللامركزية والتنمية المحلية</span><span lang="fr">Ministère de l’Intérieur, de la Décentralisation et du Développement local</span></dd></div>
+        <div><dt><span lang="ar">المرجعية القانونية</span><span lang="fr">Référence juridique</span></dt><dd><span lang="ar">القانون رقم 004/2021 الصادر بتاريخ 10 فبراير 2021</span><span lang="fr">Loi n° 2021-004 du 10 février 2021</span></dd></div>
+        <div><dt><span lang="ar">البيانات العقارية</span><span lang="fr">Références foncières</span></dt><dd><span lang="ar">القطعة رقم 285، السند العقاري رقم 6959</span><span lang="fr">Lot n° 285, titre foncier n° 6959</span></dd></div>
+      </dl>
+    </div>
+
+    <div class="contact-card">
+      <h3><span lang="ar">تواصل معنا</span><span lang="fr">Contactez-nous</span></h3>
+      <p><span lang="ar">للشراكة أو التطوع أو دعم برامجنا، راسلنا أو اتصل بنا مباشرة.</span><span lang="fr">Pour un partenariat, du bénévolat ou pour soutenir nos programmes, écrivez-nous ou appelez-nous.</span></p>
+      <div class="c-links">
+        <a class="wa" href="https://wa.me/22247212454" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg>
+          <span lang="ar">واتساب</span><span lang="fr">WhatsApp</span> <span class="num">+222 47 21 24 54</span></a>
+        <a href="tel:+22247212454"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg><span lang="ar">اتصال هاتفي</span><span lang="fr">Appeler</span></a>
+        <a href="mailto:ONGalmshkat@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="num">ONGalmshkat@gmail.com</span></a>
+      </div>
+      <p class="addr"><span lang="ar">نواكشوط الغربية، مقاطعة لكصر، شارع عبد الودود داهي، قبالة المستشفى العسكري، رقم 6820 ND</span><span lang="fr">Nouakchott Ouest, commune du Ksar, rue Abdel Wedoud Dahy, en face de l’Hôpital militaire, n° 6820 ND</span></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="logo.png" alt="شعار جمعية المشكاة — Logo Al-Michkat">
+    <p class="tag"><span lang="ar">معًا من أجل التضامن والكرامة الإنسانية والتنمية المستدامة</span><span lang="fr">Ensemble pour la solidarité, la dignité humaine et le développement durable</span></p>
+    <p style="margin-inline:auto"><span lang="ar">إغاثة، تعليم، توعية</span><span lang="fr">Secours, Éducation, Sensibilisation</span></p>
+    <small>© <span id="yr">2026</span> <span lang="ar">جمعية المشكاة للعمل الخيري والتنموي</span><span lang="fr">Association Al-Michkat pour le Travail Caritatif et le Développement</span></small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){
+    root.lang=l; root.dir=(l==='ar')?'rtl':'ltr';
+    document.title = l==='ar' ? 'جمعية المشكاة للعمل الخيري والتنموي' : 'Association Al-Michkat — Caritatif et Développement';
+    try{localStorage.setItem('michkat-lang',l)}catch(e){}
+  }
+  var saved=null; try{saved=localStorage.getItem('michkat-lang')}catch(e){}
+  if(saved==='fr'||saved==='ar') setLang(saved);
+  document.getElementById('langBtn').addEventListener('click',function(){setLang(root.lang==='ar'?'fr':'ar')});
+  var nav=document.getElementById('nav'), mb=document.getElementById('menuBtn');
+  mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
